@@ -11,7 +11,7 @@ import { AuthContext } from "./context";
 
 import Splash from './Splash/Splash.js';
 import Signup from './Signup/Signup';
-import Profile from './Profile/Profile';
+import Account from './Account/Account';
 import Home, { Details } from './Home/Home';
 import Landing from './Landing/Landing';
 import Login from './Login/Login';
@@ -80,7 +80,14 @@ const RootStackScreen = ({ userToken }) => (
         name="App"
         component={TabsScreen}
         options={{
-          animationEnabled: false
+          title: 'My home',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
     ) : (
