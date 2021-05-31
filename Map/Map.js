@@ -8,6 +8,11 @@ import ourReducer from '../store/reducer';
 const store = createStore(ourReducer);
 
 export default function Map() {
+
+  // store.getState().reducer.mockItems.map((marker, index) =>{
+  //   console.log(parseFloat(marker.lat),parseFloat(marker.lon))
+  // })
+
   return (
     <View style={styles.container}>
       <Button
@@ -20,12 +25,10 @@ export default function Map() {
         <Text style={{ color: "white" }}>Go Back</Text>
       </Button>
       <MapView style={styles.map}>
-        {store.getState().reducer.mockItems.map((marker, index) => (
+      {store.getState().reducer.mockItems.map((marker, index) => (
           <Marker
             key={index}
-            coordinate={[marker.lat,marker.lon]}
-            title={marker.restaurant}
-            description={marker.meal}
+            coordinate={{latitude: parseFloat(marker.lat), longitude: parseFloat(marker.lon)}}
           />
         ))}
       </MapView>
